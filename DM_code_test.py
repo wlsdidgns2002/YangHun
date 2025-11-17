@@ -135,15 +135,14 @@ def is_transitive(matrix):
 def warshall_closure(matrix):
     n = len(matrix)
 
+    # 와샬 알고리즘 수행
     for k in range(n):
         for i in range(n):
             for j in range(n):
-                if matrix[i][j] == 0 and matrix[k][j] == 1:
+                if matrix[i][j] == 0 and matrix[i][k] == 1 and matrix[k][j] == 1:
                     matrix[i][j] = 1
 
     return matrix
-
-
 
 
 
